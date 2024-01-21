@@ -1,3 +1,5 @@
+import css from './SearchForm.module.css'
+
 const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -7,16 +9,16 @@ const SearchForm = ({ setSearchParams }) => {
   };
 
   return (
-    <form className="SearchForm" onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
-        className="SearchForm-input"
+        className={css.input}
         type="text"
         name="search"
         autoComplete="off"
         autoFocus
         placeholder="Search movies"
       />
-      <button type="submit" className="SearchForm-button">
+      <button type="submit" className={css.button}>
         Search
       </button>
     </form>
