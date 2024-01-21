@@ -1,6 +1,6 @@
 import SearchForm from 'components/SearchForm/SearchForm';
 import { fetchSearch } from 'helpers/api';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
@@ -25,10 +25,10 @@ const Movies = () => {
   ));
 
   return (
-    <Suspense>
+    <>
       <SearchForm setSearchParams={setSearchParams} />
       <ul>{elements}</ul>
-    </Suspense>
+    </>
   );
 };
 

@@ -21,7 +21,7 @@ const MovieDetails = () => {
   const year = dateObject.getFullYear();
 
   return (
-    <Suspense>
+    <div>
       <button>
         <Link to={backLinkLocation.current}>Go back</Link>
       </button>
@@ -58,9 +58,9 @@ const MovieDetails = () => {
         <li>
           <Link to="reviews">Reviews</Link>
         </li>
-        {<Outlet />}
+        <Suspense> {<Outlet />}</Suspense>
       </ul>
-    </Suspense>
+    </div>
   );
 };
 

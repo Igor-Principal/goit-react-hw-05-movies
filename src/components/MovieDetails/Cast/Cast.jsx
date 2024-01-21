@@ -1,5 +1,5 @@
 import { fetchCast } from 'helpers/api';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const Cast = () => {
@@ -26,7 +26,11 @@ const Cast = () => {
     </li>
   ));
 
-  return <ul>{elements}</ul>;
+  return (
+    <Suspense>
+      <ul>{elements}</ul>
+    </Suspense>
+  );
 };
 
 export default Cast;
