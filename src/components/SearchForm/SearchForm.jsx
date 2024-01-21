@@ -14,7 +14,7 @@ const SearchForm = ({ setSearchParams }) => {
         name="search"
         autoComplete="off"
         autoFocus
-        placeholder="Search images and photos"
+        placeholder="Search movies"
       />
       <button type="submit" className="SearchForm-button">
         Search

@@ -3,6 +3,8 @@ import { fetchSearch } from 'helpers/api';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
+import css from "./Movies.module.css"
+
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const text = searchParams.get('querty') ?? '';
@@ -19,7 +21,7 @@ const Movies = () => {
   const elements = movieList.map(
     ({ original_title, id, backdrop_path }) =>
       backdrop_path && (
-        <li key={id}>
+        <li key={id} className={css.item}>
           <Link to={`/movies/${id}`} state={{ from: location }}>
             {original_title}
           </Link>
@@ -30,7 +32,7 @@ const Movies = () => {
   return (
     <>
       <SearchForm setSearchParams={setSearchParams} />
-      <ul>{elements}</ul>
+      <ul className={css.list}>{elements}</ul>
     </>
   );
 };
