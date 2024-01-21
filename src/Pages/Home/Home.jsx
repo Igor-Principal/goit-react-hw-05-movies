@@ -1,6 +1,7 @@
 import { fetchTrend } from 'helpers/api';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import css from './Home.module.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -12,18 +13,18 @@ const Home = () => {
   }, []);
 
   const listMovies = movies.map(({ id, title }) => (
-    <li key={id}>
-      <Link to={`/movies/${id}`} state={location}>
+    <li key={id} className={css.item}>
+      <NavLink to={`/movies/${id}`} state={location}>
         {title}
-      </Link>
+      </NavLink>
     </li>
   ));
 
   return (
-    <div>
-      <h1>Trending today</h1>
-      <ul>{listMovies}</ul>
-    </div>
+    <>
+      <h1 className={css.main_title}>Trending today</h1>
+      <ul className={css.list}>{listMovies}</ul>
+    </>
   );
 };
 

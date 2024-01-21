@@ -16,13 +16,16 @@ const Movies = () => {
       .catch(error => console.error(error));
   }, [text]);
 
-  const elements = movieList.map(({ original_title, id }) => (
-    <li key={id}>
-      <Link to={`/movies/${id}`} state={{ from: location }}>
-        {original_title}
-      </Link>
-    </li>
-  ));
+  const elements = movieList.map(
+    ({ original_title, id, backdrop_path }) =>
+      backdrop_path && (
+        <li key={id}>
+          <Link to={`/movies/${id}`} state={{ from: location }}>
+            {original_title}
+          </Link>
+        </li>
+      )
+  );
 
   return (
     <>

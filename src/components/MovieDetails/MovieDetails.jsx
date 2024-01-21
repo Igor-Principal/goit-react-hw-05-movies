@@ -22,9 +22,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <button>
-        <Link to={backLinkLocation.current}>Go back</Link>
-      </button>
+      <Link to={backLinkLocation.current}>Go back</Link>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/original/${info.poster_path}`}
