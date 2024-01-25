@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import css from './movies.module.css';
 
+
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const text = searchParams.get('querty') ?? '';
