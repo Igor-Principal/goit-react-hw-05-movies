@@ -1,4 +1,4 @@
-
+import css from './searchForm.module.css'
 
 const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = e => {
