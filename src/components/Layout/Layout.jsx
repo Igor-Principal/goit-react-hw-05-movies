@@ -5,9 +5,9 @@ import { Suspense } from 'react';
 const Layout = () => {
   return (
     <>
-      <Header />
+      <Header  />
       <main>
-        <Suspense>
+        <Suspense fallback={<p>...Loading page</p>}>
           <Outlet />
         </Suspense>
       </main>

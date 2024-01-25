@@ -1,7 +1,7 @@
 import { fetchTrend } from 'helpers/api';
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import css from './Home.module.css';
+import css from './home.module.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -12,19 +12,27 @@ const Home = () => {
       .catch();
   }, []);
 
-  const listMovies = movies.map(({ id, title }) => (
+  const listMovies = movies.map(({ id, title, poster_path }) => (
     <li key={id} className={css.item}>
-      <NavLink to={`/movies/${id}`} state={location}>
-        {title}
+      <NavLink to={`/movies/${id}`} state={location} className={css.navLink}>
+        <div className={css.containerImgHome}>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            alt={title}
+            width={220}
+            className={css.img}
+          />
+          <p className={css.text}>{title}</p>
+        </div>
       </NavLink>
     </li>
   ));
 
   return (
-    <>
+    <div className="container">
       <h1 className={css.main_title}>Trending today</h1>
       <ul className={css.list}>{listMovies}</ul>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,26 @@
+.header {
+  background-color: #6da5c0;
+}
+
+.list {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  list-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0;
+}
+
+.item {
+  font-size: 30px;
+  font-weight: bold;
+  color: #05161a;
+  text-decoration: none;
+}
+
+.item:global(.active) {
+  color: #0c7076;
+}

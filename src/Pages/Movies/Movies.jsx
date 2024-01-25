@@ -3,7 +3,7 @@ import { fetchSearch } from 'helpers/api';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
-import css from "./Movies.module.css"
+import css from "./movies.module.css"
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,10 +30,10 @@ const Movies = () => {
   );
 
   return (
-    <>
+    <div className="container">
       <SearchForm setSearchParams={setSearchParams} />
       <ul className={css.list}>{elements}</ul>
-    </>
+    </div>
   );
 };
 
