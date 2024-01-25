@@ -1,10 +1,10 @@
-import css from './SearchForm.module.css'
+import css from './SearchForm.module.css';
 
 const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const inputValue = e.target.elements.search.value.toLowerCase().trim();
-    setSearchParams({ "querty": inputValue });
+    setSearchParams({ querty: inputValue });
     e.currentTarget.reset();
   };
 

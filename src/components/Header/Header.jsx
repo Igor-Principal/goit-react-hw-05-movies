@@ -4,7 +4,7 @@ import css from './header.module.css';
 const Header = () => {
   return (
     <header className={css.header}>
-      <div className='container'>
+      <div className="container">
         <nav>
           <ul className={css.list}>
             <li>
