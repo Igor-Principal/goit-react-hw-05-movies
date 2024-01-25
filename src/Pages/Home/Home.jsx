@@ -1,7 +1,7 @@
-import css from './home.module.css';
 import { fetchTrend } from 'helpers/api';
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import css from './home.module.css'
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
