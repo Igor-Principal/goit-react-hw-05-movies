@@ -19,7 +19,7 @@ const Home = () => {
           <img
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={title}
-            width={220}
+            // width={220}
             className={css.img}
           />
           <p className={css.text}>{title}</p>

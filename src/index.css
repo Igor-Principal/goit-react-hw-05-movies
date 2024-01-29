@@ -20,18 +20,16 @@ ul {
 
 @media screen and (max-width: 375px) {
   .container {
-    width: 98%;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 100%;
     margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 375px) {
   .container {
-    width: 100%;
-
-    max-width: 335px;
+    /* max-width: 335px; */
+    padding-left: 15px;
+    padding-right: 15px;
     margin: 0 auto;
   }
 }

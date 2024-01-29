@@ -1,7 +1,8 @@
 import SearchForm from 'components/SearchForm/SearchForm';
 import { fetchSearch } from 'helpers/api';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
+import css from './movies.module.css';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,12 +18,21 @@ const Movies = () => {
   }, [text]);
 
   const elements = movieList.map(
-    ({ original_title, id, backdrop_path }) =>
+    ({ original_title, id, backdrop_path, poster_path, title }) =>
       backdrop_path && (
-        <li key={id}>
-          <Link to={`/movies/${id}`} state={{ from: location }}>
-            {original_title}
-          </Link>
+        <li key={id} className={css.containerHome}>
+          <NavLink
+            className={css.navLink}
+            to={`/movies/${id}`}
+            state={{ from: location }}
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+              alt={title}
+              className={css.img}
+            />
+            <p className={css.text}>{original_title}</p>
+          </NavLink>
         </li>
       )
   );
@@ -30,7 +40,7 @@ const Movies = () => {
   return (
     <div className="container">
       <SearchForm setSearchParams={setSearchParams} />
-      <ul>{elements}</ul>
+      <ul className={css.list}>{elements}</ul>
     </div>
   );
 };

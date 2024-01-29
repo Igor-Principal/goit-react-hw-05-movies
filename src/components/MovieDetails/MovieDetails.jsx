@@ -1,6 +1,7 @@
 import { fetchDetails } from 'helpers/api';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
+import css from './movieDetails.module.css';
 
 const MovieDetails = () => {
   const [info, setInfo] = useState({});
@@ -21,40 +22,54 @@ const MovieDetails = () => {
   const year = dateObject.getFullYear();
 
   return (
-    <div>
-      <Link to={backLinkLocation.current}>Go back</Link>
-      <div>
-        <img
-          src={`https://image.tmdb.org/t/p/original/${info.poster_path}`}
-          alt={info.title}
-          width="300px"
-        />
-        <div>
+    <div className="container">
+      <div className={css.coverBack}>
+        <NavLink to={backLinkLocation.current} className={css.toBack}>
+          Go back
+        </NavLink>
+      </div>
+
+      <div className={css.mainInfo}>
+        <div className={css.imgBlock}>
+          <img
+            src={`https://image.tmdb.org/t/p/original/${info.poster_path}`}
+            alt={info.title}
+            className={css.img}
+          />
+        </div>
+        <div className={css.textBlock}>
           <div>
-            <h1>
-              {info.title} ({year})
+            <h1 className={css.mainTitle}>
+              {info.title}
+              <br />({year})
             </h1>
-            <p>User Score {info.vote_average}%</p>
+            <p className={css.textScore}>
+              <span className={css.textBolt}>User Score:</span> {info.vote_average}%
+            </p>
           </div>
           <div>
-            <h2>Overview</h2>
-            <p>{info.overview}</p>
+            <h2 className={css.secondTitle}>Overview</h2>
+            <p className={css.text}>{info.overview}</p>
           </div>
           <div>
-            <h2>Genres</h2>
+            <h2 className={css.secondTitle}>Genres</h2>
             <ul>
               {info.poster_path &&
-                info.genres.map(gener => <li key={gener.id}>{gener.name}</li>)}
+                info.genres.map(gener => (
+                  <li key={gener.id} className={css.text}>
+                    {gener.name}
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
       </div>
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <NavLink to="cast">Cast</NavLink>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <NavLink to="reviews">Reviews</NavLink>
         </li>
         <Suspense> {<Outlet />}</Suspense>
       </ul>
