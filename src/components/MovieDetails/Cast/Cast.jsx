@@ -1,6 +1,7 @@
 import { fetchCast } from 'helpers/api';
 import { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -13,22 +14,24 @@ const Cast = () => {
       .catch(error => console.error(error));
   }, [movieId]);
 
-  const elements = actorInfo.map(actor => (
-    <li key={actor.id}>
-      <img
-        loading="lazy"
-        src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}
-        alt={actor.name}
-        width={150}
-      />
-      <h3>{actor.name}</h3>
-      <p>Character:{actor.character}</p>
-    </li>
-  ));
+  const elements = actorInfo.map(
+    ({ id, profile_path, name }) =>
+      profile_path && (
+        <li key={id} className={css.item}>
+          <img
+            loading="lazy"
+            src={`https://image.tmdb.org/t/p/original/${profile_path}`}
+            alt={name}
+            className={css.img}
+          />
+          <h3 className={css.name}>{name}</h3>
+        </li>
+      )
+  );
 
   return (
     <Suspense>
-      <ul>{elements}</ul>
+      <ul className={css.list}>{elements}</ul>
     </Suspense>
   );
 };

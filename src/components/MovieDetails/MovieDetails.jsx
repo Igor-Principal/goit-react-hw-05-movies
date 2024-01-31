@@ -24,7 +24,7 @@ const MovieDetails = () => {
   return (
     <div className="container">
       <div className={css.coverBack}>
-        <NavLink to={backLinkLocation.current} className={css.toBack}>
+        <NavLink to={backLinkLocation.current} className={css.button}>
           Go back
         </NavLink>
       </div>
@@ -44,19 +44,20 @@ const MovieDetails = () => {
               <br />({year})
             </h1>
             <p className={css.textScore}>
-              <span className={css.textBolt}>User Score:</span> {info.vote_average}%
+              <span className={css.textBolt}>User Score:</span>{' '}
+              {info.vote_average}%
             </p>
           </div>
-          <div>
+          <div className={(css.blockOverview)}>
             <h2 className={css.secondTitle}>Overview</h2>
             <p className={css.text}>{info.overview}</p>
           </div>
           <div>
             <h2 className={css.secondTitle}>Genres</h2>
-            <ul>
+            <ul className={css.listGenres}>
               {info.poster_path &&
                 info.genres.map(gener => (
-                  <li key={gener.id} className={css.text}>
+                  <li key={gener.id} className={css.textGener}>
                     {gener.name}
                   </li>
                 ))}
@@ -64,15 +65,19 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-      <ul>
+      <ul className={css.list}>
         <li>
-          <NavLink to="cast">Cast</NavLink>
+          <NavLink to="cast" className={css.button}>
+            Cast
+          </NavLink>
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <NavLink to="reviews" className={css.button}>
+            Reviews
+          </NavLink>
         </li>
-        <Suspense> {<Outlet />}</Suspense>
       </ul>
+      <Suspense> {<Outlet />}</Suspense>
     </div>
   );
 };
