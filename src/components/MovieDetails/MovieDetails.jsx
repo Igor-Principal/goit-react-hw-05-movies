@@ -3,18 +3,21 @@ import { Suspense, useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import css from './movieDetails.module.css';
 
+
 const MovieDetails = () => {
   const [info, setInfo] = useState({});
+  
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/');
   const { movieId } = useParams();
 
   useEffect(() => {
     if (!movieId) return;
-
+    
     fetchDetails(movieId)
       .then(data => setInfo(data))
-      .catch(error => console.error(error));
+      .catch(error => console.error(error))
+      ;
   }, [movieId]);
 
   const dateString = info.release_date;
@@ -28,7 +31,6 @@ const MovieDetails = () => {
           Go back
         </NavLink>
       </div>
-
       <div className={css.mainInfo}>
         <div className={css.imgBlock}>
           <img
@@ -48,7 +50,7 @@ const MovieDetails = () => {
               {info.vote_average}%
             </p>
           </div>
-          <div className={(css.blockOverview)}>
+          <div className={css.blockOverview}>
             <h2 className={css.secondTitle}>Overview</h2>
             <p className={css.text}>{info.overview}</p>
           </div>

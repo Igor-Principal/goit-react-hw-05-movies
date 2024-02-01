@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import css from './reviews.module.css';
 
+
 const Reviews = () => {
   const { movieId } = useParams();
   const [revInfo, setRevInfo] = useState([]);
@@ -10,7 +11,8 @@ const Reviews = () => {
   useEffect(() => {
     fetchReview(movieId)
       .then(data => setRevInfo(data.results))
-      .catch(error => console.error(error));
+      .catch(error => console.error(error))
+      ;
   }, [movieId]);
 
   const elements = revInfo
@@ -29,9 +31,11 @@ const Reviews = () => {
 
   return (
     <ul className={css.list}>
-      {revInfo.length > 0
-        ? elements
-        : "We don't have ane reviewsfor this movie."}
+      {revInfo.length > 0 ? (
+        elements
+      ) : (
+        <p >We don't have ane reviewsfor this movie.</p>
+      )}
     </ul>
   );
 };

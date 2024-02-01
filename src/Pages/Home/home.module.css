@@ -1,8 +1,9 @@
 .main_title {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
-  color: black;
+  color: #43515a;
+
   margin-top: 40px;
   margin-bottom: 40px;
 }

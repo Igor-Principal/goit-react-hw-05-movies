@@ -22,14 +22,14 @@
   letter-spacing: 0.06em;
   text-align: center;
 
-  background-color: #0f969c;
+  background-color: #52646f;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
 .button:focus {
-  background-color: #0c7076;
+  background-color: #7d8a91;
 }
 
 .input {
@@ -37,6 +37,7 @@
   padding: 8px;
   border-radius: 10px;
   font-size: 14px;
-  border: 1px solid #0f969c;
+  border: 1px solid #52646f;
   outline: none;
+  color: #52646f;
 }

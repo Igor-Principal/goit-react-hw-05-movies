@@ -1,0 +1,16 @@
+.list {
+  padding-left: 15px;
+}
+
+.name {
+  margin-bottom: 0;
+}
+
+.rating {
+  margin-top: 5px;
+}
+
+.content {
+  text-align: justify;
+  text-indent: 1em;
+}

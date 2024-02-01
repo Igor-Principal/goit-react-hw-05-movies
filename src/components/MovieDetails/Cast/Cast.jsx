@@ -3,6 +3,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import css from './cast.module.css';
 
+
 const Cast = () => {
   const { movieId } = useParams();
   const [actorInfo, setActorInfo] = useState([]);
@@ -11,7 +12,8 @@ const Cast = () => {
       .then(data => {
         setActorInfo(data.cast.slice(0, 10));
       })
-      .catch(error => console.error(error));
+      .catch(error => console.error(error))
+      ;
   }, [movieId]);
 
   const elements = actorInfo.map(

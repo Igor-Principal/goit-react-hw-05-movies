@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
 import css from './movies.module.css';
 
+
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const text = searchParams.get('querty') ?? '';
@@ -14,7 +15,8 @@ const Movies = () => {
     if (!text) return;
     fetchSearch(text)
       .then(data => setMovieList(data.results))
-      .catch(error => console.error(error));
+      .catch(error => console.error(error))
+      ;
   }, [text]);
 
   const elements = movieList.map(

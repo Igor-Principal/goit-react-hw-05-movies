@@ -1,7 +1,8 @@
 import { fetchTrend } from 'helpers/api';
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import css from "./home.module.css"
+import css from './home.module.css';
+
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -9,7 +10,8 @@ const Home = () => {
   useEffect(() => {
     fetchTrend()
       .then(({ results }) => setMovies(results))
-      .catch();
+      .catch()
+      ;
   }, []);
 
   const listMovies = movies.map(({ id, title, poster_path }) => (

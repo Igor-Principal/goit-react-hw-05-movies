@@ -7,6 +7,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #caccc1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+
+main {
+  min-height: calc(100vh - 144px);
 }
 
 code {
@@ -16,6 +24,12 @@ code {
 
 ul {
   list-style: none;
+}
+
+.loaderStyle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 375px) {
@@ -28,7 +42,7 @@ ul {
 @media screen and (min-width: 375px) {
   .container {
     /* max-width: 335px; */
-    /* padding-left: 15px; */
+    padding-left: 15px;
     padding-right: 15px;
     margin: 0 auto;
   }

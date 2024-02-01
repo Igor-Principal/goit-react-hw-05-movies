@@ -18,14 +18,14 @@
   line-height: 1.2;
   letter-spacing: 0.06em;
   text-align: center;
-  background-color: #0f969c;
+  background-color: #52646f;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
 }
 
 .button:hover,
 .button:focus {
-  background-color: #0c7076;
+  background-color: #7d8a91;
 }
 
 .mainInfo {
@@ -40,7 +40,7 @@
 }
 
 .img {
-  width: 280px;
+  width: 300px;
   border-radius: 10px;
 }
 .textBlock {
@@ -77,7 +77,6 @@
   padding-left: 0;
   margin: 0;
 }
-
 
 .list {
   display: flex;

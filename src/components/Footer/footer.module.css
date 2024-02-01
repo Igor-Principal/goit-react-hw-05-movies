@@ -1,0 +1,27 @@
+.footer {
+  background-color: #52646f;
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.text {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  color: #fff;
+  text-align: center;
+}
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link {
+  color: #acada8;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #caccc1; /* Новий колір посилання при наведенні миші */
+}
